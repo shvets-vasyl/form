@@ -85,6 +85,13 @@
 				required
 			/>
 
+			<UiDate
+				name="date"
+				label="Pick date"
+				placeholder="Select a date"
+				required
+			/>
+
       <UiTextarea
         name="message"
         label="Message"
@@ -114,6 +121,7 @@ type TypeValues = {
 	photo: File;
 	file: File;
 	documents: File[];
+	date: string;
 	message: string;
   agree: boolean;
 };
@@ -164,6 +172,10 @@ const schema = yup.object({
         file?.size != null ? file.size < 2 * 1024 * 1024 : false
       )
 		),
+	date: yup
+		.date()
+		.nullable()
+		.required("Date is required"),
 	message: yup.string(),
   agree: yup.boolean().oneOf([true], "You must accept the terms"),
 });
