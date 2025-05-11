@@ -1,0 +1,36 @@
+*,
+*:after,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+input,
+textarea {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  resize: none;
+}
+button,
+a {
+  all: unset;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  border: none;
+  outline: none;
+}

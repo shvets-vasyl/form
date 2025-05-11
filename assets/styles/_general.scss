@@ -1,0 +1,29 @@
+@use "./utils" as *;
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 112%;
+  color: var(--c-black);
+  background: var(--c-white);
+}
+
+body {
+  overscroll-behavior: none;
+	-ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+button,
+a {
+  box-sizing: border-box;
+  display: inline-flex;
+	cursor: pointer;
+}
