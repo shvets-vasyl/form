@@ -188,21 +188,6 @@ const schema = yup.object({
 // ----- SUBMIT
 const onSubmit: SubmissionHandler<any> = async (values: TypeValues) => {
   console.log(values);
-
-	isSending.value = true
-  isSent.value = false
-
-  await new Promise((res) => setTimeout(res, 2000))
-
-  console.log("Form sent:", values)
-
-  isSending.value = false
-  isSent.value = true
-
-  // через 3 секунди повертаємо кнопку назад
-  setTimeout(() => {
-    isSent.value = false
-  }, 3000)
 };
 </script>
 <style scoped lang="scss">
