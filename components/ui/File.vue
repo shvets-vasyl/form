@@ -17,7 +17,7 @@
           class="hidden"
           :accept="accept"
           :multiple="multiple"
-          @change="(e) => onFileInput(e, handleChange)"
+          @change="onFileInput($event, handleChange)"
         />
       </label>
 
