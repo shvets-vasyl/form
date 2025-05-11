@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <Form :validation-schema="schema" class="form" @submit="onSubmit">
+    <Form :validation-schema="schema" v-slot="{ values }" class="form" @submit="onSubmit">
       <UiInput
         name="name"
         type="text"
@@ -101,6 +101,10 @@
       <UiCheckbox name="agree" label="I agree to the terms" required />
 
       <UiButton text="Send" />
+
+			<div class="values">
+				{{ values }}
+			</div>
     </Form>
   </div>
 </template>
@@ -184,6 +188,21 @@ const schema = yup.object({
 // ----- SUBMIT
 const onSubmit: SubmissionHandler<any> = async (values: TypeValues) => {
   console.log(values);
+
+	isSending.value = true
+  isSent.value = false
+
+  await new Promise((res) => setTimeout(res, 2000))
+
+  console.log("Form sent:", values)
+
+  isSending.value = false
+  isSent.value = true
+
+  // через 3 секунди повертаємо кнопку назад
+  setTimeout(() => {
+    isSent.value = false
+  }, 3000)
 };
 </script>
 <style scoped lang="scss">
